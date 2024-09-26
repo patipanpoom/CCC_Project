@@ -1,0 +1,11 @@
+apiVersion: fission.io/v1
+kind: TimeTrigger
+metadata:
+  creationTimestamp: null
+  name: wharvester-trigger
+spec:
+  cron: '@every 30m'
+  functionref:
+    functionweights: null
+    name: wharvester
+    type: name

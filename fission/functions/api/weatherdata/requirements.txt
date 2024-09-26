@@ -1,0 +1,2 @@
+elasticsearch8==8.11.0
+kubernetes==29.0.0

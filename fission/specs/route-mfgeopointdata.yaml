@@ -1,0 +1,22 @@
+apiVersion: fission.io/v1
+kind: HTTPTrigger
+metadata:
+  creationTimestamp: null
+  name: mfgeopointdata
+spec:
+  createingress: true
+  functionref:
+    functionweights: null
+    name: mortalityfertilitydata
+    type: name
+  host: ""
+  ingressconfig:
+    annotations: null
+    host: '*'
+    path: /mortalityfertilitydata/lat/{lat:[0-9.-]*}/long/{long:[0-9.-]*}
+    tls: ""
+  method: ""
+  methods:
+  - GET
+  prefix: ""
+  relativeurl: /mortalityfertilitydata/lat/{lat:[0-9.-]*}/long/{long:[0-9.-]*}

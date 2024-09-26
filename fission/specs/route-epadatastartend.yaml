@@ -1,0 +1,22 @@
+apiVersion: fission.io/v1
+kind: HTTPTrigger
+metadata:
+  creationTimestamp: null
+  name: epadatastartend
+spec:
+  createingress: true
+  functionref:
+    functionweights: null
+    name: getepadata
+    type: name
+  host: ""
+  ingressconfig:
+    annotations: null
+    host: '*'
+    path: /getepadata/startdate/{Startdate:[0-9-]*}/enddate/{Enddate:[0-9-]*}
+    tls: ""
+  method: ""
+  methods:
+  - GET
+  prefix: ""
+  relativeurl: /getepadata/startdate/{Startdate:[0-9-]*}/enddate/{Enddate:[0-9-]*}

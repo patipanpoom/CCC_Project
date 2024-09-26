@@ -1,0 +1,25 @@
+include:
+- ./functions/join_sa3/join_sa3.zip
+kind: ArchiveUploadSpec
+name: functions-join-sa3-join-sa3-zip-heM6
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: join-sa3
+spec:
+  buildcmd: ./build.sh
+  deployment:
+    checksum: {}
+  environment:
+    name: python
+    namespace: ""
+  source:
+    checksum: {}
+    type: url
+    url: archive://functions-join-sa3-join-sa3-zip-heM6
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2024-05-10T12:12:27Z"

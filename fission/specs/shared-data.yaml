@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: default
+  name: shared-data
+data:
+  ES_USERNAME: "<elasticsearch username>"
+  ES_PASSWORD: "<elasticsearch password>"
+  EPA_BASE_URL: "https://gateway.api.epa.vic.gov.au/environmentMonitoring/v1/sites/"
+  EPA_API_KEY: "<EPA api key>"
+  KAFKA_BASE_URL: "http://router.fission/enqueue/"
+  BOM_BASE_URL: "http://reg.bom.gov.au/fwo/IDV60901/IDV60901."
+  ES_URL: "elasticsearch-master.elastic.svc.cluster.local:9200"

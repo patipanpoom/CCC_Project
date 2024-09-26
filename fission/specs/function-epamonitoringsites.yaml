@@ -1,0 +1,58 @@
+include:
+- ./functions/epamonitoringsites.py
+kind: ArchiveUploadSpec
+name: functions-epamonitoringsites-py-1zPb
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: epamonitoringsites-13802960-f81c-4690-bf7e-044d35ef9556
+spec:
+  deployment:
+    checksum: {}
+    type: url
+    url: archive://functions-epamonitoringsites-py-1zPb
+  environment:
+    name: python
+    namespace: ""
+  source:
+    checksum: {}
+status:
+  buildstatus: none
+  lastUpdateTimestamp: "2024-05-07T17:03:26Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: epamonitoringsites
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  configmaps:
+  - name: shared-data
+    namespace: ""
+  environment:
+    name: python
+    namespace: ""
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    packageref:
+      name: epamonitoringsites-13802960-f81c-4690-bf7e-044d35ef9556
+      namespace: ""
+  requestsPerPod: 1
+  resources: {}
+  secrets:
+  - name: epa-secret
+    namespace: ""

@@ -1,0 +1,55 @@
+include:
+- ./functions/wharvester.py
+kind: ArchiveUploadSpec
+name: functions-wharvester-py-v7Y6
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: wharvester-67ad1db2-ecab-4026-8103-a3f68ce624b2
+spec:
+  deployment:
+    checksum: {}
+    type: url
+    url: archive://functions-wharvester-py-v7Y6
+  environment:
+    name: python
+    namespace: ""
+  source:
+    checksum: {}
+status:
+  buildstatus: none
+  lastUpdateTimestamp: "2024-04-29T21:13:16Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: wharvester
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  configmaps:
+  - name: shared-data
+    namespace: ""
+  environment:
+    name: python
+    namespace: ""
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    packageref:
+      name: wharvester-67ad1db2-ecab-4026-8103-a3f68ce624b2
+      namespace: ""
+  requestsPerPod: 1
+  resources: {}

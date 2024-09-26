@@ -1,0 +1,31 @@
+include:
+- ./functions/api/sa2_geometry.zip
+kind: ArchiveUploadSpec
+name: functions-api-sa2-geometry-zip-xBFt
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: sa2-geometry
+spec:
+  buildcmd: ./build.sh
+  deployment:
+    checksum: {}
+  environment:
+    name: python
+    namespace: ""
+  source:
+    checksum: {}
+    type: url
+    url: archive://functions-api-sa2-geometry-zip-xBFt
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2024-05-16T08:18:35Z"
+
+---
+include:
+- ./functions/api/sa2_geometry.zip
+kind: ArchiveUploadSpec
+name: functions-api-sa2-geometry-zip-TbYb

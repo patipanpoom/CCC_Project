@@ -1,0 +1,25 @@
+include:
+- ./functions/addweatherdata.zip
+kind: ArchiveUploadSpec
+name: functions-addweatherdata-zip-eHbl
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: addweatherdata
+spec:
+  buildcmd: ./build.sh
+  deployment:
+    checksum: {}
+  environment:
+    name: python
+    namespace: ""
+  source:
+    checksum: {}
+    type: url
+    url: archive://functions-addweatherdata-zip-eHbl
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2024-05-09T16:24:11Z"

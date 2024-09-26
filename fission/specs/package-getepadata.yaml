@@ -1,0 +1,25 @@
+include:
+- ./functions/api/epadata.zip
+kind: ArchiveUploadSpec
+name: functions-api-epadata-zip-8ZBT
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: getepadata
+spec:
+  buildcmd: ./build.sh
+  deployment:
+    checksum: {}
+  environment:
+    name: python
+    namespace: ""
+  source:
+    checksum: {}
+    type: url
+    url: archive://functions-api-epadata-zip-8ZBT
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2024-04-30T12:31:36Z"
